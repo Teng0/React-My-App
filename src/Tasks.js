@@ -1,5 +1,5 @@
- export  default function Tasks(props) {
-console.log(props.onDelete);
+import Button from "./Button";
+export  default function Tasks(props) {
     return (
         <div>
             <input type="checkbox"/>
@@ -10,6 +10,7 @@ console.log(props.onDelete);
             >
                 Delete
             </button>
+            <Button />
         </div>
     )
 
