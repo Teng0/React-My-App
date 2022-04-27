@@ -1,4 +1,4 @@
-import {useState} from "react";
+import React ,{useState} from "react";
 import taskcss from './tasks.module.css';
 
 
@@ -15,6 +15,7 @@ export  default function Counter()
         title = setTitle('Number is '+curValue);
     }
     return(
+
         <div>
             <h2>{title}</h2>
             <p>{curValue}</p>
