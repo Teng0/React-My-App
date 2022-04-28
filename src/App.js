@@ -11,7 +11,9 @@ import Border from "./Border";
 import axios from "axios";
 import {useEffect} from "react";
 import {useState} from "react";
-
+import './i18n';
+import {useTranslation} from "react-i18next";
+import {changeLanguage} from "i18next";
 
 // const tasks = [
 // {id:1,text:"Task Text 1",completed:true},
@@ -26,6 +28,9 @@ const tasks =[];
 
 function App() {
     const [tasks,setTasks] = useState([]);
+    const { t, i18n } = useTranslation();
+    const [btText,setBtText]=useState('ენის შეცვლა');
+
     useEffect(()=>{
         axios.get('https://jsonplaceholder.typicode.com/todos')
             .then((response)=>{
@@ -36,11 +41,28 @@ function App() {
             });
     },[]);
 
-    console.log(tasks[0]);
+function changeLanguage(e) {
+
+       let lang = e.target.value;
+       if (lang==='en'){
+        lang ='ka';
+        e.target.value = 'ka';
+       setBtText('Login')
+    }else {
+        lang = 'ka';
+        e.target.value = 'en';
+           setBtText('ენის შეცვლა')
+    }
+
+        i18n.changeLanguage(lang);
+}
 
     return (
         <ThemeProvider.Provider value='light'>
             <div className="App">
+
+                <h1>{t('login')}</h1>
+                <button onClick={changeLanguage} value="en">{btText}</button>
                 <header className="App-header">
                     {/*<Counter></Counter>*/}
 
