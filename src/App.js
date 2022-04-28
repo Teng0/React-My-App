@@ -14,6 +14,8 @@ import {useState} from "react";
 import './i18n';
 import {useTranslation} from "react-i18next";
 import {changeLanguage} from "i18next";
+import {useReducer} from "react";
+
 
 // const tasks = [
 // {id:1,text:"Task Text 1",completed:true},
@@ -23,13 +25,24 @@ import {changeLanguage} from "i18next";
 
 
 const tasks =[];
-
+const initialState =[];
+function reduce(state,action) {
+    if (action.type == 'add_task'){
+        return [...state,action.value];
+    }
+}
 
 
 function App() {
     const [tasks,setTasks] = useState([]);
     const { t, i18n } = useTranslation();
     const [btText,setBtText]=useState('ენის შეცვლა');
+    const [state,dispach]=useReducer(reduce,initialState);
+
+    dispach({type:"add_task",value:{text:"Lorem ipsum"}});
+    dispach({type:"delete_task",value:{id:9}});
+    dispach({type:"complete_task",value:{id:9}});
+    dispach({type:"unCheck_task",value:{id:9}});
 
     useEffect(()=>{
         axios.get('https://jsonplaceholder.typicode.com/todos')
