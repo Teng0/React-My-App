@@ -17,7 +17,7 @@ import {changeLanguage} from "i18next";
 import {useReducer} from "react";
 import CounterWithClass from "./CounterWithClass";
 import { BrowserRouter } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 // const tasks = [
 // {id:1,text:"Task Text 1",completed:true},
 // {id:2,text:"Task Text 2",completed:true},
@@ -72,8 +72,21 @@ function App() {
 // }
 
     return (
-        <ThemeProvider.Provider value='light'>
-            <div className="App">
+
+
+            <div className="App" >
+                <div>
+                    <h1>Bookkeeper!</h1>
+                </div>
+                <nav
+                    style={{
+                        borderBottom: "solid 1px",
+                        paddingBottom: "1rem",
+                    }}
+                >
+                    <Link to="/invoices">Invoices</Link> |{" "}
+                    <Link to="/expenses">Expenses</Link>
+                </nav>
 
                 {/*<h1>{t('login')}</h1>*/}
                 {/*<button onClick={changeLanguage} value="en">{btText}</button>*/}
@@ -83,25 +96,23 @@ function App() {
                 {/*    {<Border hedaer={()=><div>Test</div>}>*/}
                 {/*        <AddTask></AddTask>*/}
                 {/*    </Border>}*/}
-                    <CounterWithClass/>
-                    {/*{*/}
-                    {/*    tasks.map(task => <Tasks*/}
-                    {/*            key={task.id}*/}
-                    {/*            text={task.title}*/}
-                    {/*            id={task.id}*/}
-                    {/*            checked={task.completed}*/}
-                    {/*            onDelete={onDelete}*/}
-                    {/*        />*/}
-                    {/*    )}*/}
+                {/*<CounterWithClass/>*/}
+                {/*{*/}
+                {/*    tasks.map(task => <Tasks*/}
+                {/*            key={task.id}*/}
+                {/*            text={task.title}*/}
+                {/*            id={task.id}*/}
+                {/*            checked={task.completed}*/}
+                {/*            onDelete={onDelete}*/}
+                {/*        />*/}
+                {/*    )}*/}
 
                 {/*</header>*/}
-                <BrowserRouter>
-                    <div>
-                        <h1>Bookkeeper!</h1>
-                    </div>
-                </BrowserRouter>
+
+
             </div>
-        </ThemeProvider.Provider>
+         
+
     );
 
 }
