@@ -16,8 +16,15 @@ import {useTranslation} from "react-i18next";
 import {changeLanguage} from "i18next";
 import {useReducer} from "react";
 import CounterWithClass from "./CounterWithClass";
-import { BrowserRouter } from "react-router-dom";
-import { Link } from "react-router-dom";
+
+
+import Expenses from "./routes/expenses";
+import Invoices from "./routes/invoices";
+import {
+    BrowserRouter,
+
+} from "react-router-dom";
+import Header from "./routes/header";
 // const tasks = [
 // {id:1,text:"Task Text 1",completed:true},
 // {id:2,text:"Task Text 2",completed:true},
@@ -78,15 +85,8 @@ function App() {
                 <div>
                     <h1>Bookkeeper!</h1>
                 </div>
-                <nav
-                    style={{
-                        borderBottom: "solid 1px",
-                        paddingBottom: "1rem",
-                    }}
-                >
-                    <Link to="/invoices">Invoices</Link> |{" "}
-                    <Link to="/expenses">Expenses</Link>
-                </nav>
+                <Header/>
+
 
                 {/*<h1>{t('login')}</h1>*/}
                 {/*<button onClick={changeLanguage} value="en">{btText}</button>*/}
@@ -111,7 +111,7 @@ function App() {
 
 
             </div>
-         
+
 
     );
 
