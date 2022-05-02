@@ -19,6 +19,7 @@ export default function Header(){
                     paddingBottom: "1rem",
                 }}
             >
+                <Link to="/">Home</Link> |{" "}
                 <Link to="/invoices">Invoices</Link> |{" "}
                 <Link to="/users">Users</Link> |{" "}
                 <Link to="/user">User</Link> |{" "}
@@ -27,12 +28,14 @@ export default function Header(){
             </nav>
             <Routes>
 
+                <Route path="/" element={<App/>}/>
                 <Route exact path="expenses" element={<Expenses/>}/>
                 <Route path="invoices" element={<Invoices/>}/>
                 <Route path="users" element={<Users/>}/>
                 <Route path="user/:id" element={<User/>}/>
-                <Route path="blog" element={<Blog/>}/>
-                <Route path="/" element={<App/>}/>
+                <Route path="blog/:page" element={<Blog/>}/>
+                <Route path="blog/" element={<Blog/>}/>
+
             </Routes>
         </>
     );
