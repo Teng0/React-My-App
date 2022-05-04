@@ -29,6 +29,7 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Blog() {
 
 const [data,setData]=useState([]);
+const [totalPosts,setTotalPosts]=useState(0);
 const  params = useParams();
 const  page = params.page || 1 ;
 
@@ -40,6 +41,7 @@ const  page = params.page || 1 ;
             })
             .then((resp)=>{
             setData(resp.data);
+            // setTotalPosts(resp.header.total-x-posts);
             })
             .catch(()=>{
             });

@@ -13,8 +13,12 @@ import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 // import Link from "@mui/material/Link";
+
 import ListItem from "@mui/material/ListItem";
 import { Link } from 'react-router-dom';
+
+
+
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -32,8 +36,10 @@ const [data,setData]=useState([]);
 const  params = useParams();
 const  page = params.page || 1 ;
 
+
     useEffect(()=>{
         const data = axios.get("https://jsonplaceholder.typicode.com/todos/"+page,{
+
             params:{
                 page:page
             }
@@ -47,38 +53,37 @@ const  page = params.page || 1 ;
 
         console.log(data);
         
-    // return (
-    //     <Container maxWidth="xl">
-    //         <Box sx={{width: '100%'}}>
-    //             <Grid container rowSpacing={2} columnSpacing={{xs: 1, sm: 2, md: 3}}>
-    //                 <Grid item md={8} xs={12}>
-    //                     <Item>{data.map((item, index) => (
-    //                         <Card sx={{minWidth: 275,m:2}} classes={{margin:'10px'}}>
-    //                             <CardContent key={item.id}>
-    //                                 <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
-    //                                     {item.title}
-    //                                 </Typography>
-    //                                 <Typography variant="h5" component="div">
-    //                                     {item.title}
-    //                                 </Typography>
-    //                             </CardContent>
-    //                             <CardActions>
-    //                                 {/*<Button component={Link} to={'/blog/'+(item.id)} size="small">Read More</Button>*/}
-    //                                 <ListItem button component={Link} to={'/blog/show/'+(item.id)} className='btn' size="lg">Read More </ListItem>
-    //                             </CardActions>
-    //                         </Card>
-    //                     ))}
-    //                     </Item>
-    //
-    //                 </Grid>
-    //                 <Grid item md={4} xs={12}>
-    //                     <Item>Side Bar Text</Item>
-    //                 </Grid>
-    //             </Grid>
-    //         </Box>
-    //     </Container>
-    //
-    // );
+    return (
+        <Container maxWidth="xl">
+            <Box sx={{width: '100%'}}>
+                <Grid container rowSpacing={2} columnSpacing={{xs: 1, sm: 2, md: 3}}>
+                    <Grid item md={8} xs={12}>
+                        <Item classes={{width:'100%'}}>{
+                            <Card sx={{minWidth: 275,m:2}} classes={{margin:'10px'}}>
+                                <CardContent key={data.id}>
+                                    <Typography sx={{fontSize: 14}} color="text.secondary" gutterBottom>
+                                        {data.title}
+                                    </Typography>
+                                    <Typography variant="h5" component="div" variant="body1">
+                                        {data.title}
+                                    </Typography>
+                                </CardContent>
+                                {/*<CardActions>*/}
+                                {/*    /!*<Button component={Link} to={'/blog/'+(item.id)} size="small">Read More</Button>*!/*/}
+                                {/*    <ListItem button component={Link} to={'/blog/show/'+(item.id)} className='btn' size="lg">Read More </ListItem>*/}
+                                {/*</CardActions>*/}
+                            </Card>
+                        }
+                        </Item>
+                    </Grid>
+                    <Grid item md={4} xs={12}>
+                        <Item>Side Bar Text</Item>
+                    </Grid>
+                </Grid>
+            </Box>
+        </Container>
+
+    );
 
     // return (
     //
