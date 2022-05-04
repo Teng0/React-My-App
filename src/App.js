@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import {createTheme } from "@mui/material/styles";
 import './App.css';
 import Tasks from "./Tasks";
 import onDelete ,{onClick2} from "./Functions";
@@ -25,6 +26,18 @@ import {
 
 } from "react-router-dom";
 import Header from "./routes/header";
+
+
+const themeLight = createTheme({
+    palette: {
+        background: {
+            default: "#e4f0e2"
+        }
+    }
+});
+
+
+
 // const tasks = [
 // {id:1,text:"Task Text 1",completed:true},
 // {id:2,text:"Task Text 2",completed:true},
@@ -82,14 +95,8 @@ function App() {
 
 
             <div className="App" >
-                <div>
-                    <h1>Bookkeeper!</h1>
-                </div>
-
-
 
                 <Header/>
-
 
                 {/*<h1>{t('login')}</h1>*/}
                 {/*<button onClick={changeLanguage} value="en">{btText}</button>*/}

@@ -13,29 +13,21 @@ import Blog from "./blog";
 
 export default function Header(){
     return (<>
-            <nav
-                style={{
-                    borderBottom: "solid 1px",
-                    paddingBottom: "1rem",
-                }}
-            >
-                <Link to="/">Home</Link> |{" "}
+
+
                 <Link to="/invoices">Invoices</Link> |{" "}
                 <Link to="/users">Users</Link> |{" "}
                 <Link to="/user">User</Link> |{" "}
                 <Link to="/blog">Blog</Link> |{" "}
                 <Link to="/expenses">Expenses</Link>
-            </nav>
-            <Routes>
 
-                <Route path="/" element={<App/>}/>
+            <Routes>
                 <Route exact path="expenses" element={<Expenses/>}/>
                 <Route path="invoices" element={<Invoices/>}/>
                 <Route path="users" element={<Users/>}/>
                 <Route path="user/:id" element={<User/>}/>
                 <Route path="blog/:page" element={<Blog/>}/>
                 <Route path="blog/" element={<Blog/>}/>
-
             </Routes>
         </>
     );
