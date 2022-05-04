@@ -62,11 +62,11 @@ const  page = params.page || 1 ;
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small">Read More</Button>
+                                    {/*<Button component={Link} to={'/blog/'+(item.id)} size="small">Read More</Button>*/}
+                                    <ListItem button component={Link} to={'/blog/show/'+(item.id)} className='btn' size="lg">Read More </ListItem>
                                 </CardActions>
                             </Card>
                         ))}
-                            <ListItem button component={Link} to="/blog">blog</ListItem>
                         </Item>
 
                     </Grid>

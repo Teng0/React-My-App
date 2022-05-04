@@ -38,6 +38,10 @@
 .MuiPaper-root{
   background-color: lightgray !important;
 }
+.btn{
+  text-align:center !important;
+  display:block !important;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
