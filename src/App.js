@@ -26,6 +26,7 @@ import {
 
 } from "react-router-dom";
 import Header from "./routes/header";
+import Cookies from 'js-cookie';
 
 
 const themeLight = createTheme({
@@ -90,6 +91,7 @@ function App() {
 //
 //         i18n.changeLanguage(lang);
 // }
+Cookies.set("Name","Tengo");
 
     return (
 

@@ -8,6 +8,7 @@ import Users from "./users";
 import User from "./single_user";
 import Blog from "./blog";
 import BlogDetails from "./blog-details";
+import Login from "../login/login.jsx";
 
 
 
@@ -19,9 +20,9 @@ export default function Header(){
                 <Link to="/invoices">Invoices</Link> |{" "}
                 <Link to="/users">Users</Link> |{" "}
                 <Link to="/user">User</Link> |{" "}
-
                 <Link to="/blog">Blog</Link> |{" "}
                 <Link to="/expenses">Expenses</Link>
+                <Link to="/login">Log In</Link>
 
             <Routes>
                 <Route exact path="expenses" element={<Expenses/>}/>
@@ -30,6 +31,7 @@ export default function Header(){
                 <Route path="user/:id" element={<User/>}/>
                 <Route path="blog/show/:page" element={<BlogDetails/>}/>
                 <Route path="blog/" element={<Blog/>}/>
+                <Route path="login/" element={<Login/>}/>
             </Routes>
         </>
     );

@@ -15,6 +15,7 @@ import Button from "@mui/material/Button";
 // import Link from "@mui/material/Link";
 import ListItem from "@mui/material/ListItem";
 import { Link } from 'react-router-dom';
+import Cookies from "js-cookie";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -47,7 +48,7 @@ const  page = params.page || 1 ;
             });
     },[]);
 
-
+    Cookies.set('name', 'value', { expires: 7, path: '/' });
     return (
         <Container maxWidth="xl">
             <Box sx={{width: '100%'}}>
